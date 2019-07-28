@@ -21,3 +21,11 @@ CONTAINS CODE FOR MAPPING VALUES IN THE COLUMNS AND CONVERTING CATEGORICAL COLUM
 RETURNS TRUE OR FALSE     
 
            df["Is_Land_Level"] = (df["LandContour"] == "Lvl") * 1
+
+LABEL ENCODER
+        
+        from sklearn.preprocessing import LabelEncoder
+        m=LabelEncoder()
+        labels=m.fit_transform(df['SaleType'])
+        mapp={index:label for index,label in enumerate(m.classes_)}
+        mapp
